@@ -1,0 +1,25 @@
+{
+  "ReRoutes": [
+    {
+      "DownstreamPathTemplate": "/api/{anything}",
+      "DownstreamScheme": "http",
+      "ServiceName": "orders",
+      "UpstreamPathTemplate": "/ordering/{anything}",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/{anything}",
+      "DownstreamScheme": "http",
+      "ServiceName": "products",
+      "UpstreamPathTemplate": "/data/{anything}",
+      "UpstreamHttpMethod": [ "Get" ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "ServiceDiscoveryProvider": {
+      "Host": "localhost",
+      "Port": 8500,
+      "Type": "Consul"
+    }
+  }
+}
